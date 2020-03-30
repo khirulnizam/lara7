@@ -64,7 +64,8 @@ class TrainingController extends Controller
      */
     public function show($id)
     {
-        //
+        $training=Training::find($id);
+        return view('trainings.show')->with(compact('training'));
     }
 
     /**

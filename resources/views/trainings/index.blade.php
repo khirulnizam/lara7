@@ -23,8 +23,8 @@
                 <table class="table table-striped">
                     <thead><tr>
                         <th>id</th>
-                        <th>title</th>
-                        <th>trainer</th>
+                        <th>Title</th>
+                        <th>Task</th>
                     </tr></thead>
 
                     <tbody>
@@ -32,7 +32,10 @@
                     <tr>
                         <td>{{ $training->id }}</td>
                         <td>{{ $training->title }}</td>
-                        <td>{{ $training->trainer }}</td>
+                        <td><a class="btn btn-success btn-sm" href="{{ action('TrainingController@show',
+                            $training->id) }}">
+                            show</a>
+                        </td>
                     </tr>
                     @endforeach
 
