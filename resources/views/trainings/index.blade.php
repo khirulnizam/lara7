@@ -32,9 +32,11 @@
                     <tr>
                         <td>{{ $training->id }}</td>
                         <td>{{ $training->title }}</td>
-                        <td><a class="btn btn-success btn-sm" href="{{ action('TrainingController@show',
-                            $training->id) }}">
-                            show</a>
+                        <td><a href="{{ action('TrainingController@show', 
+                            $training->id) }}" 
+                            class="btn btn-success btn-sm">
+                            Show
+                        </a>
                         </td>
                     </tr>
                     @endforeach

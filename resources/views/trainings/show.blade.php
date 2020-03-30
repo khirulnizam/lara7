@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Show Detail Record</div>
+                <div class="card-header">Insert New Record</div>
 
                 <div class="card-body">
                     
@@ -14,15 +14,18 @@
                         Title 
                         <input name="title" type="text"
                         class="form-control"
-                        value="{{ $training->title }}">
+                        value="{{ $training->title}}"
+                        readonly>
                         Description 
                         <input name="description" type="text"
                         class="form-control"
-                        value="{{ $training->description }}">
+                        value="{{ $training->description}}"
+                        readonly>
                         Trainer 
                         <input name="trainer" type="text"
                         class="form-control"
-                        value="{{ $training->trainer }}">
+                        value="{{ $training->trainer}}"
+                        readonly>
                         <button type="button" class="btn btn-primary">
                         Back</button>
                     </form>
