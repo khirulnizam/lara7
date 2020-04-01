@@ -10,21 +10,26 @@
                 <div class="card-body">
                     
                     <!-- form start -->
-                    <form>
+                    <form >
+                        ID 
+                        <input name="title" type="text"
+                        class="form-control"
+                        value="{{ $training->id }}"
+                        readonly>
                         Title 
                         <input name="title" type="text"
                         class="form-control"
-                        value="{{ $training->title}}"
+                        value="{{ $training->title }}"
                         readonly>
                         Description 
                         <input name="description" type="text"
                         class="form-control"
-                        value="{{ $training->description}}"
+                        value="{{ $training->description }}"
                         readonly>
                         Trainer 
                         <input name="trainer" type="text"
                         class="form-control"
-                        value="{{ $training->trainer}}"
+                        value="{{ $training->trainer }}"
                         readonly>
                         <button type="button" class="btn btn-primary">
                         Back</button>

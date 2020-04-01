@@ -13,7 +13,11 @@
                             <input type="text" name="keyword"
                             class="form-control">
                             <button type="submit" 
-                            class="btn btn-primary">Search</button>
+                            class="btn btn-primary"
+                            title="Search training">
+                                <i class="fa fa-search">
+                                </i>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -32,10 +36,22 @@
                     <tr>
                         <td>{{ $training->id }}</td>
                         <td>{{ $training->title }}</td>
-                        <td><a href="{{ action('TrainingController@show', 
-                            $training->id) }}" 
-                            class="btn btn-success btn-sm">
-                            Show
+                        <td><a class="btn btn-success btn-sm" href="{{ action('TrainingController@show', 
+                            $training->id) }}">
+                            <i class="fa fa-list-alt">
+                            </i>
+                        </a>
+                        <!-- button edit -->
+                        <a href="" class="btn btn-warning btn-sm">
+                        
+                            <i class="fa fa-edit">
+                            </i>
+                        </a>
+                        <!-- button delete -->
+                        <a href="" class="btn btn-danger btn-sm">
+                        
+                            <i class="fa fa-trash">
+                            </i>
                         </a>
                         </td>
                     </tr>
