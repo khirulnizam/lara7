@@ -23,6 +23,11 @@
                 </div>
 
                 <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success')}}
+                    </div>
+                @endif
                 
                 <table class="table table-striped">
                     <thead><tr>
@@ -42,7 +47,8 @@
                             </i>
                         </a>
                         <!-- button edit -->
-                        <a href="" class="btn btn-warning btn-sm">
+                        <a href="{{ action('TrainingController@edit', 
+                            $training->id) }}" class="btn btn-warning btn-sm">
                         
                             <i class="fa fa-edit">
                             </i>

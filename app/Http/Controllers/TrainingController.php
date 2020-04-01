@@ -76,7 +76,9 @@ class TrainingController extends Controller
      */
     public function edit($id)
     {
-        //
+        //call form update
+        $training=Training::find($id);
+        return view('trainings.edit')->with(compact('training')); //call form edit
     }
 
     /**
@@ -88,7 +90,15 @@ class TrainingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //save edited record
+        $training=Training::find($id);
+        $training->update(
+                $request->only('title','description',
+                    'trainer')
+            );
+        //redirect to index
+        return redirect('/trainings')->with('success',
+            'Training record has been updated');
     }
 
     /**
