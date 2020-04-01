@@ -107,9 +107,13 @@ class TrainingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)//destroy
+    public function delete($id)// delete/destroy
     {
-        //
+        //delete record based on id
+        $training=Training::find($id);
+        $training->delete();
+        return redirect ('/trainings')->with('success',
+            "Record id: $id has been deleted");
     }
 
     

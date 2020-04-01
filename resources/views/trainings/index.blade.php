@@ -34,6 +34,7 @@
                         <th>id</th>
                         <th>Title</th>
                         <th>Task</th>
+                        <th>Delete</th>
                     </tr></thead>
 
                     <tbody>
@@ -53,12 +54,17 @@
                             <i class="fa fa-edit">
                             </i>
                         </a>
-                        <!-- button delete -->
-                        <a href="" class="btn btn-danger btn-sm">
-                        
-                            <i class="fa fa-trash">
-                            </i>
-                        </a>
+                        </td>
+                        <td><!-- form with button delete -->
+                            <form method="POST"
+                            action="{{action('TrainingController@delete',
+                            $training->id) }}">
+                            @csrf
+                                <button class="btn btn-danger btn-sm"
+                                onclick="return confirm('Are you sure to delete record id:{{$training->id}}')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -66,9 +72,11 @@
                     </tbody>
                 </table>
                 {{ $trainings->links() }}
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
