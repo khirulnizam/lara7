@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Insert New Record</div>
+                <div class="card-header">Display Complete Record</div>
 
                 <div class="card-body">
                     
