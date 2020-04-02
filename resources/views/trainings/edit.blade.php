@@ -13,6 +13,7 @@
                     <form action="{{action('TrainingController@update',
                     $training->id )}}" method="POST">
                         @csrf
+                        
                         Title 
                         <input name="title" type="text"
                         class="form-control"
