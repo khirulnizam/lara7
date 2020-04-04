@@ -1,4 +1,5 @@
 <?php
+use App\Training;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +12,10 @@
 |
 */
 
+//routes/web.php
 Route::get('/', function () {
-    return view('welcome');
+    $trainings=Training::all();
+    return view('landingpage')->with(compact('trainings'));
 });
 
 Auth::routes();
@@ -26,7 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::post('/trainings/create', 'TrainingController@store')->name('training:store');
 
 //group routing
-//
+//for training module
 Route::group([
     'middleware'=>'auth',//lock this route group to only authenticated users
     'prefix'=>'trainings',
