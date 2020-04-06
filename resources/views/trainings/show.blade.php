@@ -31,8 +31,23 @@
                         class="form-control"
                         value="{{ $training->trainer }}"
                         readonly>
-                        <button type="button" class="btn btn-primary">
-                        Back</button>
+                        Filename 
+                        <input name="filename" type="text"
+                        class="form-control"
+                        value="{{ $training->filename }}"
+                        readonly>
+
+                        <!-- display poster image if available-->
+                        @if ($training->filename == null)
+                            <h4>Image not available!</h4>
+                        @else
+                            <img src="{{env('APP_URL')}}/storage/{{$training->filename}}" width="300">
+                        @endif
+                        <br>
+                        <div class="float-right">
+                            <button type="button" class="btn btn-primary">
+                            Back</button>
+                        </div>
                     </form>
 
                     <!-- form ends -->

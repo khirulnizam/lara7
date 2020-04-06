@@ -8,9 +8,21 @@
                 <div class="card-header">Insert New Record</div>
 
                 <div class="card-body">
+                    <!-- show validation error messages -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     
                     <!-- form start -->
-                    <form action="{{ action('TrainingController@store')}}" method="POST">
+                    <form action="{{ action('TrainingController@store')}}" 
+                    method="POST" 
+                    enctype="multipart/form-data">
                         @csrf
                         Title 
                         <input name="title" type="text"
@@ -21,6 +33,13 @@
                         Trainer 
                         <input name="trainer" type="text"
                         class="form-control">
+                        Upload image file only
+                        <!-- input type=file -->
+                        <input type="file"
+                        name="attachment"
+                        class="form-control">
+
+                        <!-- submit button -->
                         <button type="submit" class="btn btn-primary">
                         Submit Record</button>
                     </form>

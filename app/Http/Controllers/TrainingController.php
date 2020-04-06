@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Training;
+//add Storage facade
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class TrainingController extends Controller
 {
@@ -50,6 +53,28 @@ class TrainingController extends Controller
         $training->title=$request->get('title');
         $training->description=$request->get('description');
         $training->trainer=$request->get('trainer');
+
+        //file uploaded?
+        if($request->hasFile('attachment')){
+            $this->validate($request,
+                ['attachment'=>'mimes:jpeg,jpg,png,bmp,gif|max:2048',],
+                $errors=[
+                    'required'=>'The :attribute field is required.',
+                    'mimes'=>'Only jpeg, jpg, png, bmp, gif with max filesize 2MB'
+                ]
+            );//end validation
+
+            //regenerate filename
+            //example 2020-04-06-Laravel101.png
+            $filename=date('Y-m-d').'-'.$request->get('title').'.'.$request->attachment->getClientOriginalExtension();
+            //store image file to web server
+            Storage::disk('public')->put($filename,
+                File::get($request->attachment));
+            //fetch filename to save to db
+            $training->filename=$filename;
+
+        }//end file upload process
+
         $training->save();
 
         //redirect to index

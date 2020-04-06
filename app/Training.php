@@ -9,6 +9,7 @@ class Training extends Model
     //
     protected $fillable = [
         'title', 'description', 'trainer',
+        'filename','idadmin'
     ];
 
     protected $table='trainings';
